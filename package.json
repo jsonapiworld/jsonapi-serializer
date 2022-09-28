@@ -36,7 +36,7 @@
     "json api",
     "serializer"
   ],
-  "author": "Anderson Danilo",
+  "author": "Alex Gola",
   "homepage": "https://github.com/jsonapiworld/jsonapi-serializer#readme",
   "bugs": {
     "url": "https://github.com/jsonapiworld/jsonapi-serializer/issues"
