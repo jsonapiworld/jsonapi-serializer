@@ -1,7 +1,4 @@
 # jsonapi-serializer
-[![Test](https://github.com/jsonapiworld/jsonapi-serializer/actions/workflows/test.yml/badge.svg)](https://github.com/jsonapiworld/jsonapi-serializer/actions/workflows/test.yml)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/test_coverage)](https://codeclimate.com/github/jsonapiworld/jsonapi-serializer/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/maintainability)](https://codeclimate.com/github/jsonapiworld/jsonapi-serializer/maintainability)
 ![License](https://img.shields.io/github/license/jsonapiworld/jsonapi-serializer)
 
 JSON:API Serializer
