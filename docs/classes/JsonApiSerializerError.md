@@ -44,7 +44,7 @@ Error.constructor
 
 #### Defined in
 
-[src/errors.ts:2](https://github.com/jsonapiworld/jsonapi-serializer/blob/fc0b05d/src/errors.ts#L2)
+[src/errors.ts:2](https://github.com/jsonapiworld/jsonapi-serializer/blob/f088bf1/src/errors.ts#L2)
 
 ## Properties
 
