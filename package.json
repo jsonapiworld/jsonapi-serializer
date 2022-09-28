@@ -5,6 +5,9 @@
   "license": "MIT",
   "main": "dist/index",
   "types": "./dist/index.d.ts",
+  "engines": {
+    "node": "16.15.0"
+  },
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
