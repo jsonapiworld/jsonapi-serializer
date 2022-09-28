@@ -53,6 +53,34 @@ describe('serialize', () => {
     })
   })
 
+  it('should serialize correctly data equals null for removed relationship', () => {
+    const serialized = serialize(
+      {
+        address: null, // the one to be deleted
+        anotherAddress: {
+          id: 'address-1',
+        },
+      },
+      'users',
+      { relationships: ['address', 'anotherAddress'] },
+    )
+
+    expect(serialized).toStrictEqual({
+      data: {
+        type: 'users',
+        attributes: {},
+        relationships: {
+          address: {
+            data: null,
+          },
+          anotherAddress: {
+            data: { type: 'anotherAddress', id: 'address-1' },
+          },
+        },
+      },
+    })
+  })
+
   it('should accept undefined options', () => {
     const serialized = serialize(validEntity, 'users')
 

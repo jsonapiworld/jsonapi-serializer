@@ -1,6 +1,6 @@
 {
   "name": "@jsonapiworld/jsonapi-serializer",
-  "version": "2.2.0",
+  "version": "1.0.1",
   "description": "JSON:API Serializer",
   "license": "MIT",
   "main": "dist/index",
@@ -57,6 +57,7 @@
     "acorn": "^8.7.0",
     "conventional-changelog-conventionalcommits": "^4.6.3",
     "embedme": "^1.22.0",
+    "eslint": "8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsdoc": "^39.2.9",
     "eslint-plugin-prettier": "^4.0.0",

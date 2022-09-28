@@ -25,7 +25,8 @@ module.exports = {
     'unicorn/prefer-node-protocol': 'off',
     'jsdoc/require-jsdoc': ['error', { 'publicOnly': true }],
     'jsdoc/require-param-type': 'off',
-    'jsdoc/require-returns': 'off'
+    'jsdoc/require-returns': 'off',
+    'unicorn/no-null': 'off',
   },
   overrides: [
     {

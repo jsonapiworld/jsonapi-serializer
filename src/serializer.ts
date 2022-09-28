@@ -98,7 +98,7 @@ function serializeEntity<TEntity, TExtraOptions>(
           .map((inputItem) => serializeRelation({ ...context, input: inputItem }, includedByType))
           .filter((identifier) => !!identifier) as ResourceIdentifierObject[],
       }
-    } else if (context.input) {
+    } else if (context.input !== undefined) {
       relationships[relation] = {
         data: serializeRelation(context, includedByType) as ResourceIdentifierObject,
       }
@@ -133,14 +133,19 @@ function serializeEntity<TEntity, TExtraOptions>(
 function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
   context: Context<TEntity, TExtraOptions>,
   includedByType: IncludedRecord,
-): ResourceIdentifierObject | undefined {
+): ResourceIdentifierObject | undefined | null {
   const { input: entity, options, transformer, included } = context
+
+  const idKey = options.idKey || 'id'
+
+  if (entity === null) {
+    return null
+  }
 
   if (!entity) {
     return undefined
   }
 
-  const idKey = options.idKey || 'id'
   const id = (entity as unknown as Record<string, string>)[idKey]
 
   if (!id) {
