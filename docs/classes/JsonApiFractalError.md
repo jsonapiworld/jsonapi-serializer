@@ -1,36 +1,36 @@
-[jsonapi-fractal](../README.md) / JsonApiFractalError
+[@jsonapiworld/jsonapi-serializer](../README.md) / JsonApiSerializerError
 
-# Class: JsonApiFractalError
+# Class: JsonApiSerializerError
 
 ## Hierarchy
 
 - `Error`
 
-  ↳ **`JsonApiFractalError`**
+  ↳ **`JsonApiSerializerError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](JsonApiFractalError.md#constructor)
+- [constructor](JsonApiSerializerError.md#constructor)
 
 ### Properties
 
-- [message](JsonApiFractalError.md#message)
-- [name](JsonApiFractalError.md#name)
-- [stack](JsonApiFractalError.md#stack)
-- [prepareStackTrace](JsonApiFractalError.md#preparestacktrace)
-- [stackTraceLimit](JsonApiFractalError.md#stacktracelimit)
+- [message](JsonApiSerializerError.md#message)
+- [name](JsonApiSerializerError.md#name)
+- [stack](JsonApiSerializerError.md#stack)
+- [prepareStackTrace](JsonApiSerializerError.md#preparestacktrace)
+- [stackTraceLimit](JsonApiSerializerError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](JsonApiFractalError.md#capturestacktrace)
+- [captureStackTrace](JsonApiSerializerError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-• **new JsonApiFractalError**(`message`)
+• **new JsonApiSerializerError**(`message`)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Error.constructor
 
 #### Defined in
 
-[src/errors.ts:2](https://github.com/andersondanilo/jsonapi-fractal/blob/fc0b05d/src/errors.ts#L2)
+[src/errors.ts:2](https://github.com/jsonapiworld/jsonapi-serializer/blob/fc0b05d/src/errors.ts#L2)
 
 ## Properties
 

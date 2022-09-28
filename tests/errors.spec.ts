@@ -1,10 +1,10 @@
-import { JsonApiFractalError } from '../src/errors'
+import { JsonApiSerializerError } from '../src/errors'
 
-describe('JsonApiFractalError', () => {
+describe('JsonApiSerializerError', () => {
   describe('constructor', () => {
     it('should set the name', () => {
-      const error = new JsonApiFractalError('my message')
-      expect(error.name).toEqual('JsonApiFractalError')
+      const error = new JsonApiSerializerError('my message')
+      expect(error.name).toEqual('JsonApiSerializerError')
       expect(error.message).toEqual('my message')
     })
   })

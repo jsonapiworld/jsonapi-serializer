@@ -1,4 +1,4 @@
-const { serialize, CaseType } = require('jsonapi-fractal')
+const { serialize, CaseType } = require('@jsonapiworld/jsonapi-serializer')
 
 const entity = {
   id: 1,

@@ -1,4 +1,4 @@
-const { deserialize, CaseType } = require('jsonapi-fractal')
+const { deserialize, CaseType } = require('@jsonapiworld/jsonapi-serializer')
 
 const serializedData = {
   data: {

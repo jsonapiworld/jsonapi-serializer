@@ -1,5 +1,5 @@
 import { ContextBuilder } from '../src/context'
-import { JsonApiFractalError } from '../src/errors'
+import { JsonApiSerializerError } from '../src/errors'
 
 describe('ContextBuilder', () => {
   describe('toContext', () => {
@@ -12,7 +12,7 @@ describe('ContextBuilder', () => {
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } as any),
         ).toContext()
-      }).toThrow(JsonApiFractalError)
+      }).toThrow(JsonApiSerializerError)
     })
   })
 })

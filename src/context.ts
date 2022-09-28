@@ -1,6 +1,6 @@
 import { Transformer } from './transformer'
 import { Options, DocumentObject } from './types'
-import { JsonApiFractalError } from './errors'
+import { JsonApiSerializerError } from './errors'
 
 export type Context<TEntity, TExtraProperties = unknown> = {
   input: TEntity | undefined
@@ -44,7 +44,7 @@ export class ContextBuilder<TEntity, TExtraProperties = unknown> {
     const transformer = this.transformer
 
     if (!transformer) {
-      throw new JsonApiFractalError('transformer is required')
+      throw new JsonApiSerializerError('transformer is required')
     }
 
     const options = this.options || ({} as Options<TExtraProperties>)

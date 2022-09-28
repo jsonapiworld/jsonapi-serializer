@@ -1,24 +1,23 @@
-# jsonapi-fractal
-[![npm version](https://badge.fury.io/js/jsonapi-fractal.svg)](https://badge.fury.io/js/jsonapi-fractal)
-[![Test](https://github.com/andersondanilo/jsonapi-fractal/actions/workflows/test.yml/badge.svg)](https://github.com/andersondanilo/jsonapi-fractal/actions/workflows/test.yml)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/test_coverage)](https://codeclimate.com/github/andersondanilo/jsonapi-fractal/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/maintainability)](https://codeclimate.com/github/andersondanilo/jsonapi-fractal/maintainability)
-![License](https://img.shields.io/github/license/andersondanilo/jsonapi-fractal)
+# jsonapi-serializer
+[![Test](https://github.com/jsonapiworld/jsonapi-serializer/actions/workflows/test.yml/badge.svg)](https://github.com/jsonapiworld/jsonapi-serializer/actions/workflows/test.yml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/test_coverage)](https://codeclimate.com/github/jsonapiworld/jsonapi-serializer/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/83d0ccc37861951910b1/maintainability)](https://codeclimate.com/github/jsonapiworld/jsonapi-serializer/maintainability)
+![License](https://img.shields.io/github/license/jsonapiworld/jsonapi-serializer)
 
-JSON:API Serializer inspired by Fractal (PHP)
+JSON:API Serializer
 
 ## Installation
 ```
-yarn add jsonapi-fractal
+yarn add @jsonapiworld/jsonapi-serializer
 OR
-npm install jsonapi-fractal --save
+npm install @jsonapiworld/jsonapi-serializer --save
 ```
 
 ## Simple Serialize
 ```js
 // examples/simple-serialize.js
 
-const { serialize, CaseType } = require('jsonapi-fractal')
+const { serialize, CaseType } = require('@jsonapiworld/jsonapi-serializer')
 
 const entity = {
   id: 1,
@@ -78,7 +77,7 @@ console.log(JSON.stringify(serialized))
 ```js
 // examples/deserialize.js
 
-const { deserialize, CaseType } = require('jsonapi-fractal')
+const { deserialize, CaseType } = require('@jsonapiworld/jsonapi-serializer')
 
 const serializedData = {
   data: {
@@ -110,7 +109,7 @@ console.log(JSON.stringify(entity))
 ```js
 // examples/serialize-with-transformers.js
 
-const { Transformer, DefaultTransformer, transform, whitelist } = require('jsonapi-fractal')
+const { Transformer, DefaultTransformer, transform, whitelist } = require('@jsonapiworld/jsonapi-serializer')
 
 class UserTransformer extends Transformer {
   constructor() {

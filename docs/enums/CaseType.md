@@ -1,4 +1,4 @@
-[jsonapi-fractal](../README.md) / CaseType
+[@jsonapiworld/jsonapi-serializer](../README.md) / CaseType
 
 # Enumeration: CaseType
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/types.ts:45](https://github.com/andersondanilo/jsonapi-fractal/blob/fc0b05d/src/types.ts#L45)
+[src/types.ts:45](https://github.com/jsonapiworld/jsonapi-serializer/blob/fc0b05d/src/types.ts#L45)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/types.ts:47](https://github.com/andersondanilo/jsonapi-fractal/blob/fc0b05d/src/types.ts#L47)
+[src/types.ts:47](https://github.com/jsonapiworld/jsonapi-serializer/blob/fc0b05d/src/types.ts#L47)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/types.ts:46](https://github.com/andersondanilo/jsonapi-fractal/blob/fc0b05d/src/types.ts#L46)
+[src/types.ts:46](https://github.com/jsonapiworld/jsonapi-serializer/blob/fc0b05d/src/types.ts#L46)

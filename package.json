@@ -1,7 +1,7 @@
 {
-  "name": "jsonapi-fractal",
+  "name": "@jsonapiworld/jsonapi-serializer",
   "version": "2.2.0",
-  "description": "JSON:API Serializer inspired by Fractal (PHP)",
+  "description": "JSON:API Serializer",
   "license": "MIT",
   "main": "dist/index",
   "types": "./dist/index.d.ts",
@@ -27,16 +27,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andersondanilo/jsonapi-fractal.git"
+    "url": "git+https://github.com/jsonapiworld/jsonapi-serializer.git"
   },
   "keywords": [
     "json api",
     "serializer"
   ],
   "author": "Anderson Danilo",
-  "homepage": "https://github.com/andersondanilo/jsonapi-fractal#readme",
+  "homepage": "https://github.com/jsonapiworld/jsonapi-serializer#readme",
   "bugs": {
-    "url": "https://github.com/andersondanilo/jsonapi-fractal/issues"
+    "url": "https://github.com/jsonapiworld/jsonapi-serializer/issues"
   },
   "dependencies": {
     "change-case": "^4.1.1"

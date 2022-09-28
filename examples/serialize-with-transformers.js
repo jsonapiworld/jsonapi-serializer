@@ -1,4 +1,4 @@
-const { Transformer, DefaultTransformer, transform, whitelist } = require('jsonapi-fractal')
+const { Transformer, DefaultTransformer, transform, whitelist } = require('@jsonapiworld/jsonapi-serializer')
 
 class UserTransformer extends Transformer {
   constructor() {

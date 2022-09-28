@@ -11,7 +11,7 @@ import {
   SerializeOptions,
 } from './types'
 import { whitelist, changeCase } from './utils'
-import { JsonApiFractalError } from './errors'
+import { JsonApiSerializerError } from './errors'
 
 type IncludedRecord = Record<string, Record<string, ResourceObject>>
 
@@ -144,7 +144,7 @@ function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
   const id = (entity as unknown as Record<string, string>)[idKey]
 
   if (!id) {
-    throw new JsonApiFractalError('Resource without id')
+    throw new JsonApiSerializerError('Resource without id')
   }
 
   if (included) {
