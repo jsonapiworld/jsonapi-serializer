@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/default-transformer.ts:8](https://github.com/jsonapiworld/jsonapi-serializer/blob/f088bf1/src/default-transformer.ts#L8)
+[src/default-transformer.ts:8](https://github.com/jsonapiworld/jsonapi-serializer/blob/23c793d/src/default-transformer.ts#L8)
 
 ## Properties
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[src/default-transformer.ts:6](https://github.com/jsonapiworld/jsonapi-serializer/blob/f088bf1/src/default-transformer.ts#L6)
+[src/default-transformer.ts:6](https://github.com/jsonapiworld/jsonapi-serializer/blob/23c793d/src/default-transformer.ts#L6)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/default-transformer.ts:8](https://github.com/jsonapiworld/jsonapi-serializer/blob/f088bf1/src/default-transformer.ts#L8)
+[src/default-transformer.ts:8](https://github.com/jsonapiworld/jsonapi-serializer/blob/23c793d/src/default-transformer.ts#L8)
 
 ## Methods
 
@@ -108,4 +108,4 @@ ___
 
 #### Defined in
 
-[src/default-transformer.ts:23](https://github.com/jsonapiworld/jsonapi-serializer/blob/f088bf1/src/default-transformer.ts#L23)
+[src/default-transformer.ts:23](https://github.com/jsonapiworld/jsonapi-serializer/blob/23c793d/src/default-transformer.ts#L23)
