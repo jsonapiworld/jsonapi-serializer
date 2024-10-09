@@ -37,10 +37,14 @@ function parseJsonApiSimpleResourceData<TEntity, TExtraOptions>(
     includedCache[data.type] = {}
   }
 
-  const id: string | undefined = (data as ExistingResourceObject).id || undefined
-
+  const id: string | undefined = ((data as ExistingResourceObject) && 'id' in data && data.id) || undefined
   if (useCache && id && id in includedCache[data.type]) {
     return includedCache[data.type][id] as TEntity
+  }
+
+  const lid: string | undefined = ((data as ExistingResourceObject) && 'lid' in data && data.lid) || undefined
+  if (useCache && lid && lid in includedCache[data.type]) {
+    return includedCache[data.type][lid] as TEntity
   }
 
   let attributes: AttributesObject = data.attributes || {}
@@ -51,6 +55,7 @@ function parseJsonApiSimpleResourceData<TEntity, TExtraOptions>(
 
   const resource: Record<string, unknown> = {
     ...(id ? { id } : {}),
+    ...(lid ? { lid } : {}),
     ...attributes,
   }
 
@@ -58,8 +63,9 @@ function parseJsonApiSimpleResourceData<TEntity, TExtraOptions>(
     resource['links'] = data.links
   }
 
-  if (id) {
-    includedCache[data.type][id] = resource
+  const ensureId = id || lid
+  if (ensureId) {
+    includedCache[data.type][ensureId] = resource
   }
 
   if (data.relationships) {
@@ -72,14 +78,20 @@ function parseJsonApiSimpleResourceData<TEntity, TExtraOptions>(
 
       if (Array.isArray(relationReference.data)) {
         resource[relationName] = relationReference.data.map((relationData) => {
-          return findJsonApiIncluded(included, includedCache, relationData.type, relationData.id, options)
+          const id: { value: string; field: 'id' | 'lid' } =
+            'id' in relationData ? { field: 'id', value: relationData.id } : { field: 'lid', value: relationData.lid }
+          return findJsonApiIncluded(included, includedCache, relationData.type, id, options)
         })
       } else if (relationReference && relationReference.data) {
+        const relationData = relationReference.data
+        const id: { value: string; field: 'id' | 'lid' } =
+          'id' in relationData ? { field: 'id', value: relationData.id } : { field: 'lid', value: relationData.lid }
+
         const relationResource = findJsonApiIncluded<Record<string, unknown>, TExtraOptions>(
           included,
           includedCache,
-          relationReference.data.type,
-          relationReference.data.id,
+          relationData.type,
+          id,
           options,
         )
 
@@ -101,19 +113,26 @@ function parseJsonApiSimpleResourceData<TEntity, TExtraOptions>(
  * @param includedCache
  * @param type
  * @param id
+ * @param id.value
  * @param options
+ * @param id.field
  */
 function findJsonApiIncluded<TEntity, TExtraOptions>(
   included: ExistingResourceObject[],
   includedCache: IncludedCache,
   type: string,
-  id: string,
+  id: { value: string; field: 'id' | 'lid' },
   options: Options<TExtraOptions>,
 ): TEntity {
-  const foundResource = included.find((item) => item.type === type && item.id === id)
+  const foundResource = included.find((item) => {
+    if (item.type !== type) return false
+    if (id.field === 'id' && 'id' in item) return item.id === id.value
+    if (id.field === 'lid' && 'lid' in item) return item.lid === id.value
+    return false
+  })
 
   if (!foundResource) {
-    return { id } as unknown as TEntity
+    return { [id.field]: id.value } as unknown as TEntity
   }
 
   return parseJsonApiSimpleResourceData(foundResource, included, options, true, includedCache)

@@ -82,7 +82,10 @@ function serializeEntity<TEntity, TExtraOptions>(
   const id: string | undefined =
     (attributes[idKey] as string) || (entity as unknown as Record<string, string>)[idKey] || undefined
 
+  const lid = (!id && (entity as unknown as Record<string, string>).lid) || undefined
+
   delete attributes[idKey]
+  delete attributes.lid
 
   const relationships: Record<string, RelationshipObject> = {}
 
@@ -113,7 +116,7 @@ function serializeEntity<TEntity, TExtraOptions>(
     attributes = changeCase(attributes, options.changeCase, options.changeCaseDeep)
   }
 
-  const data: Omit<ResourceObject, 'id'> & { id?: string } = {
+  const data: Omit<ResourceObject, 'id' | 'lid'> & { id?: string; lid?: string } = {
     type: transformer.type,
     attributes,
     relationships,
@@ -121,6 +124,8 @@ function serializeEntity<TEntity, TExtraOptions>(
 
   if (id) {
     data.id = id
+  } else if (lid) {
+    data.lid = lid
   }
 
   if (data.relationships && Object.keys(data.relationships).length === 0) {
@@ -147,9 +152,10 @@ function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
   }
 
   const id = (entity as unknown as Record<string, string>)[idKey]
+  const lid = (entity as unknown as Record<string, string>).lid
 
-  if (!id) {
-    throw new JsonApiSerializerError('Resource without id')
+  if (!id && !lid) {
+    throw new JsonApiSerializerError('Resource without id or lid')
   }
 
   if (included) {
@@ -158,7 +164,7 @@ function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
     }
 
     if (!(id in includedByType[transformer.type])) {
-      includedByType[transformer.type][id] = serializeEntity(
+      includedByType[transformer.type][id ?? lid] = serializeEntity(
         entity,
         transformer,
         options,
@@ -167,8 +173,14 @@ function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
     }
   }
 
+  if (id) {
+    return {
+      type: transformer.type,
+      id,
+    }
+  }
   return {
     type: transformer.type,
-    id,
+    lid,
   }
 }
