@@ -53,6 +53,48 @@ describe('serialize', () => {
     })
   })
 
+  it('should do simple transformation with lid instead of id', () => {
+    const serialized = serialize(
+      {
+        firstName: 'Joe',
+        lastName: 'Doe',
+        address: {
+          lid: 'address-1',
+        },
+        images: [
+          { lid: 'image-1', name: 'myimage1', width: 100 },
+          { lid: 'image-2', name: 'myimage2', width: 100 },
+        ],
+      },
+      'users',
+      validOptions,
+    )
+
+    expect(serialized).toStrictEqual({
+      data: {
+        type: 'users',
+        attributes: {
+          'first-name': 'Joe',
+          'last-name': 'Doe',
+        },
+        relationships: {
+          address: {
+            data: {
+              type: 'address',
+              lid: 'address-1',
+            },
+          },
+          images: {
+            data: [
+              { type: 'images', lid: 'image-1' },
+              { type: 'images', lid: 'image-2' },
+            ],
+          },
+        },
+      },
+    })
+  })
+
   it('should serialize correctly data equals null for removed relationship', () => {
     const serialized = serialize(
       {

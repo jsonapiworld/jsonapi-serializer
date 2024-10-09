@@ -20,13 +20,17 @@ export type MetaObject = JsonObject
 
 export type LinkObject = JsonObject
 
-export type ResourceIdentifierObject = {
-  type: string
-  id: string
-}
+export type ResourceIdentifierObject =
+  | {
+      type: string
+      id: string
+    }
+  | {
+      type: string
+      lid: string
+    }
 
 export type ExistingResourceObject = ResourceIdentifierObject & {
-  id: string
   attributes: AttributesObject
   links?: LinkObject
   relationships?: Record<string, RelationshipObject>
