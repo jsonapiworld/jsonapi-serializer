@@ -6,7 +6,7 @@ on:
     branches: [master]
 
 jobs:
-  build-test-release:
+  build-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,6 +16,7 @@ jobs:
           node-version: '16.x'
       - run: npm install
       - run: npm run build
+      - run: npm run prepare-release
       - uses: tobua/release-npm-action@v3
         with:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
