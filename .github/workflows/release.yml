@@ -3,7 +3,7 @@ name: release
 # Run action on every commit to main, release only when requested through commit annotation.
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build-test-release:
