@@ -136,7 +136,7 @@ function serializeEntity<TEntity, TExtraOptions>(
 }
 
 function serializeRelation<TEntity = unknown, TExtraOptions = unknown>(
-  context: Context<TEntity, TExtraOptions>,
+  context: Context<TEntity, TExtraOptions> & { input: TEntity },
   includedByType: IncludedRecord,
 ): ResourceIdentifierObject | undefined | null {
   const { input: entity, options, transformer, included } = context

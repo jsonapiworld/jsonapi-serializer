@@ -3,21 +3,21 @@ import { Options, DocumentObject } from './types'
 import { JsonApiSerializerError } from './errors'
 
 export type Context<TEntity, TExtraProperties = unknown> = {
-  input: TEntity | undefined
+  input: TEntity | TEntity[] | undefined
   transformer: Transformer<TEntity, TExtraProperties>
   included: boolean
   options: Options<TExtraProperties>
 }
 
 export class ContextBuilder<TEntity, TExtraProperties = unknown> {
-  input?: TEntity
+  input?: TEntity | TEntity[]
   transformer?: Transformer<TEntity, TExtraProperties>
   included = false
   options?: Options<TExtraProperties>
 
   constructor(protected renderFunction: (c: Context<TEntity, TExtraProperties>) => DocumentObject) {}
 
-  withInput(input: TEntity) {
+  withInput(input: TEntity | TEntity[]) {
     this.input = input
     return this
   }
